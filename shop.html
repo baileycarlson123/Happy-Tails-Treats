@@ -115,9 +115,16 @@
       totalDisplay.textContent = total.toFixed(2);
       summaryInput.value = summary + `Total: $${total.toFixed(2)}`;
     }
+
+    // 💥 Auto-clear cart after submitting form
+    document.getElementById('orderForm').addEventListener('submit', function () {
+      cart = [];
+      setTimeout(updateCart, 500);
+    });
   </script>
 </body>
 </html>
+
 
 
 
