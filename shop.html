@@ -70,12 +70,15 @@
     <!-- Checkout Form -->
     <div class="checkout">
       <h2>Checkout</h2>
-      <form id="orderForm" action="https://formspree.io/f/mexample" method="POST">
+      <form id="orderForm" action="https://formspree.io/f/xeoazyyey" method="POST">
         <input type="hidden" name="orderSummary" id="orderSummary" value="">
+        
         <label for="name">Your Name:</label><br>
         <input type="text" name="name" required><br><br>
+
         <label for="contact">Email or Phone:</label><br>
         <input type="text" name="contact" required><br><br>
+
         <button type="submit">Send Order</button>
       </form>
     </div>
@@ -87,7 +90,7 @@
 
   <script>
     let cart = [];
-    
+
     function addToCart(product, price) {
       cart.push({ product, price });
       updateCart();
@@ -115,4 +118,5 @@
   </script>
 </body>
 </html>
+
 
