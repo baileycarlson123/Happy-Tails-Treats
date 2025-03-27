@@ -1,112 +1,113 @@
 body {
-   font-family: 'Quicksand', sans-serif;
-   background-color: #fdfaf6;
-   color: #243533;
-   margin: 0;
-   padding: 0;
-   background-image: url('https://www.transparenttextures.com/patterns/paw-prints.png');
-   background-repeat: repeat;
-   background-attachment: fixed;
- }
- 
- header {
-   background-color: #243533;
-   padding: 1rem;
-   text-align: center;
-   border-bottom: 4px dotted #964734;
- }
- 
- header h1 {
-   margin: 0;
-   font-size: 2rem;
-   color: #fdf5e6;
- }
- 
- nav {
-   margin-top: 0.5rem;
- }
- 
- nav a {
-   margin: 0 1rem;
-   color: #fdf5e6;
-   text-decoration: none;
-   font-weight: 600;
- }
- 
- main {
-   padding: 2rem;
-   max-width: 800px;
-   margin: 2rem auto;
-   background-color: #fffaf4;
-   border-radius: 16px;
-   box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
- }
- 
- h2, h3 {
-   color: #B78953; /* Golden warmth */
- }
- 
- .product {
-   background: #ffffff;
-   border: 2px solid #692721; /* Maple Spice */
-   border-radius: 12px;
-   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-   padding: 1.5rem;
-   margin-bottom: 2rem;
-   text-align: center;
- }
- 
- .product img {
-   border-radius: 12px;
-   max-width: 100%;
-   margin-bottom: 1rem;
- }
- 
- button {
-   background-color: #964734; /* Crimson Blaze */
-   border: none;
-   border-radius: 8px;
-   padding: 0.6rem 1.2rem;
-   color: #fffaf4;
-   font-weight: bold;
-   cursor: pointer;
-   transition: 0.3s;
- }
- 
- button:hover {
-   background-color: #692721;
- }
- 
- .cart, .checkout {
-   background: #fdf5e6;
-   border-radius: 12px;
-   padding: 1.5rem;
-   margin-top: 2rem;
-   border: 2px dashed #964734;
- }
- 
- .checkout-btn {
-   background-color: #4C563F; /* Moss Mist */
-   color: white;
- }
- 
- .checkout-btn:hover {
-   background-color: #243533;
- }
- 
- footer {
-   text-align: center;
-   padding: 1rem;
-   background-color: #243533;
-   margin-top: 3rem;
-   font-size: 0.9rem;
-   color: #fdf5e6;
- }
- 
- h2.divider {
-   border-bottom: 2px dashed #964734;
-   padding-bottom: 0.5rem;
-   margin-bottom: 1.5rem;
-   color: #964734;
-   text-align: center;
- }
+  font-family: 'Quicksand', sans-serif;
+  background-color: #fdfaf6;
+  color: #243533;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/paw-prints.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+header {
+  background-color: #243533;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 4px dotted #964734;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #fdf5e6;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: #fdf5e6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: #fffaf4;
+  border-radius: 16px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
+}
+
+h2, h3 {
+  color: #B78953; /* Golden warmth */
+}
+
+.product {
+  background: #ffffff;
+  border: 2px solid #692721; /* Maple Spice */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.product img {
+  border-radius: 12px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #964734; /* Crimson Blaze */
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  color: #fffaf4;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #692721;
+}
+
+.cart, .checkout {
+  background: #d1d8d4; /* Soft Sage Green */
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 2px dashed #964734;
+}
+
+.checkout-btn {
+  background-color: #4C563F; /* Moss Mist */
+  color: white;
+}
+
+.checkout-btn:hover {
+  background-color: #243533;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #243533;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #fdf5e6;
+}
+
+h2.divider {
+  border-bottom: 2px dashed #964734;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #964734;
+  text-align: center;
+}
+
