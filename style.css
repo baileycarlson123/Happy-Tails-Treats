@@ -1,134 +1,112 @@
-/* === General Reset === */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #fdfaf6;
+  color: #243533;
   margin: 0;
   padding: 0;
-  background-color: #fffaf5;
-  background-image: url('pawprint-bg.png'); /* make sure this file is uploaded */
+  background-image: url('https://www.transparenttextures.com/patterns/paw-prints.png');
   background-repeat: repeat;
-  background-size: auto;
-  color: #2c2c2c;
+  background-attachment: fixed;
 }
 
-/* === Header === */
 header {
-  background-color: #243533; /* dark green */
-  color: #fff;
-  padding: 1rem 0;
+  background-color: #243533;
+  padding: 1rem;
   text-align: center;
-  border-bottom: 4px dotted #964734; /* crimson blaze */
+  border-bottom: 4px dotted #964734;
 }
 
 header h1 {
   margin: 0;
   font-size: 2rem;
+  color: #fdf5e6;
+}
+
+nav {
+  margin-top: 0.5rem;
 }
 
 nav a {
-  color: #fff;
-  text-decoration: none;
   margin: 0 1rem;
-  font-weight: bold;
+  color: #fdf5e6;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* === Main Layout === */
 main {
+  padding: 2rem;
   max-width: 800px;
   margin: 2rem auto;
-  background: #fffaf5;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  background-color: #fffaf4;
+  border-radius: 16px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
 }
 
-/* === Headings === */
-h2 {
-  color: #692721; /* maple spice */
-  text-align: center;
-  border-bottom: 2px dashed #964734;
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
+h2, h3 {
+  color: #B78953; /* Golden warmth */
 }
 
-/* === Products === */
 .product {
-  border: 2px solid #964734; /* crimson blaze */
+  background: #ffffff;
+  border: 2px solid #692721; /* Maple Spice */
   border-radius: 12px;
-  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 1.5rem;
   margin-bottom: 2rem;
   text-align: center;
-  background: #ffffff;
 }
 
 .product img {
-  max-width: 200px;
-  border-radius: 10px;
-  margin: 0.5rem 0;
+  border-radius: 12px;
+  max-width: 100%;
+  margin-bottom: 1rem;
 }
 
-.product h3 {
-  color: #964734;
-  font-size: 1.25rem;
-}
-
-.product p {
-  color: #4C563F; /* moss mist */
-}
-
-/* === Buttons === */
 button {
-  background-color: #964734;
-  color: #fff;
-  padding: 0.5rem 1rem;
+  background-color: #964734; /* Crimson Blaze */
   border: none;
-  border-radius: 20px;
-  cursor: pointer;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  color: #fffaf4;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
   background-color: #692721;
 }
 
-/* === Cart Section === */
-.cart {
-  border: 2px solid #964734;
-  background-color: #fffefc;
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-.cart h2 {
-  color: #692721;
-  border-bottom: none;
-}
-
-/* === Checkout === */
-.checkout {
+.cart, .checkout {
+  background: #fdf5e6;
+  border-radius: 12px;
+  padding: 1.5rem;
   margin-top: 2rem;
+  border: 2px dashed #964734;
 }
 
-.checkout form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.checkout-btn {
+  background-color: #4C563F; /* Moss Mist */
+  color: white;
 }
 
-.checkout input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.checkout-btn:hover {
+  background-color: #243533;
 }
 
-/* === Footer === */
 footer {
   text-align: center;
   padding: 1rem;
+  background-color: #243533;
+  margin-top: 3rem;
   font-size: 0.9rem;
-  color: #aaa;
+  color: #fdf5e6;
+}
+
+h2.divider {
+  border-bottom: 2px dashed #964734;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #964734;
+  text-align: center;
 }
