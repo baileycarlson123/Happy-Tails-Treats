@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  background-color: #B78953; /* Amber Glow */
+  background-color: #243533; /* Deep forest green */
   padding: 1rem;
   text-align: center;
   border-bottom: 4px dotted #964734; /* Crimson Blaze */
@@ -16,7 +16,7 @@ header {
 header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #243533; /* Lagoon */
+  color: #fdf5e6; /* Creamy light text */
 }
 
 nav {
@@ -25,7 +25,7 @@ nav {
 
 nav a {
   margin: 0 1rem;
-  color: #243533;
+  color: #fdf5e6;
   text-decoration: none;
   font-weight: 600;
 }
@@ -41,7 +41,7 @@ main {
 
 .product {
   background: #ffffff;
-  border: 2px solid #4C563F; /* Moss Mist */
+  border: 2px solid #692721; /* Maple Spice */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   padding: 1.5rem;
@@ -71,11 +71,11 @@ button:hover {
 }
 
 .cart, .checkout {
-  background: #f5fbe8;
+  background: #fdf5e6;
   border-radius: 12px;
   padding: 1.5rem;
   margin-top: 2rem;
-  border: 2px dashed #4C563F; /* Moss Mist */
+  border: 2px dashed #964734; /* Crimson Blaze */
 }
 
 .checkout-btn {
@@ -84,16 +84,16 @@ button:hover {
 }
 
 .checkout-btn:hover {
-  background-color: #243533; /* Lagoon */
+  background-color: #243533; /* Deep forest */
 }
 
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #B78953;
+  background-color: #243533;
   margin-top: 3rem;
   font-size: 0.9rem;
-  color: #243533;
+  color: #fdf5e6;
 }
 
 h2.divider {
