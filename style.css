@@ -45,6 +45,7 @@ main {
 h2, h3 {
   color: #B78953; /* Golden warmth */
   font-family: 'Quicksand', sans-serif;
+  text-align: center;
 }
 
 .product {
@@ -62,6 +63,10 @@ h2, h3 {
   border-radius: 12px;
   max-width: 100%;
   margin-bottom: 1rem;
+}
+
+.product p {
+  text-align: center;
 }
 
 button {
@@ -140,4 +145,3 @@ h2.divider {
   text-align: center;
   font-family: 'Quicksand', sans-serif;
 }
-
