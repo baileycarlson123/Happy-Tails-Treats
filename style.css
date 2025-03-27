@@ -41,7 +41,7 @@ main {
 
 .product {
   background: #ffffff;
-  border: 2px solid #B78953; /* Amber Glow */
+  border: 2px solid #4C563F; /* Moss Mist */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   padding: 1.5rem;
@@ -71,6 +71,35 @@ button:hover {
 }
 
 .cart, .checkout {
-  background: #fdf7f2;
+  background: #f5fbe8;
   border-radius: 12px;
-  padding: 1.5
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 2px dashed #4C563F; /* Moss Mist */
+}
+
+.checkout-btn {
+  background-color: #4C563F; /* Moss Mist */
+  color: white;
+}
+
+.checkout-btn:hover {
+  background-color: #243533; /* Lagoon */
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #B78953;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #243533;
+}
+
+h2.divider {
+  border-bottom: 2px dashed #964734;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #964734;
+  text-align: center;
+}
