@@ -1,208 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shop | Happy Tails & Treats</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Arial Rounded MT Bold', sans-serif;
-      background-color: #fffaf5;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #243533;
-      padding: 1rem;
-      text-align: center;
-      color: #fff;
-      border-bottom: 5px dotted #964734;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    main {
-      max-width: 700px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: #fff7ef;
-      border-radius: 12px;
-    }
-
-    h1, h2 {
-      text-align: center;
-      color: #243533;
-    }
-
-    .product {
-      border: 2px solid #964734;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      background-color: #fff;
-      text-align: center;
-    }
-
-    .product img {
-      max-width: 100%;
-      border-radius: 12px;
-    }
-
-    button {
-      background-color: #964734;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    .cart, .checkout {
-      background-color: #fcecd7;
-      border: 2px dotted #964734;
-      border-radius: 12px;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-
-    .cart h2, .checkout h2 {
-      margin-top: 0;
-      color: #692721;
-    }
-
-    ul {
-      padding-left: 1.5rem;
-    }
-
-    form label {
-      font-weight: bold;
-    }
-
-    input[type="text"], input[type="email"] {
-      padding: 0.5rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin: 0.5rem 0;
-      width: 95%;
-    }
-
-    form button {
-      margin-top: 1rem;
-      width: 100%;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      background-color: #243533;
-      color: white;
-      padding: 1rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>🐾 Happy Tails Shop</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="services.html">Dog Walking & Training</a>
-    </nav>
-  </header>
-
-  <main>
-    <h2>Farm Products 🐔</h2>
-
-    <div class="product">
-      <h3>Dozen Eggs - $7.00</h3>
-      <img src="Screenshot 2025-03-27 at 1.40.14 PM.png" alt="Dozen Eggs">
-      <p>Fresh from the farm, 12 delicious eggs.</p>
-      <button onclick="addToCart('Dozen Eggs', 7.00)">Add to Cart</button>
-    </div>
-
-    <div class="product">
-      <h3>Half Dozen Eggs - $3.50</h3>
-      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="Half Dozen Eggs">
-      <p>6 farm-fresh eggs, perfect for small households.</p>
-      <button onclick="addToCart('Half Dozen Eggs', 3.50)">Add to Cart</button>
-    </div>
-
-    <div class="product">
-      <h3>Homemade Dog Treats - $8.00</h3>
-      <img src="https://images.unsplash.com/photo-1623334079793-70e1d2b8a8eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="Dog Treats">
-      <p>Made with peanut butter, oats, and love — 10 per pack.</p>
-      <button onclick="addToCart('Dog Treats', 8.00)">Add to Cart</button>
-    </div>
-
-    <div class="cart">
-      <h2>🧺 Your Cart</h2>
-      <ul id="cartItems"></ul>
-      <p><strong>Total: $<span id="total">0.00</span></strong></p>
-    </div>
-
-    <div class="checkout">
-      <h2>💌 Checkout</h2>
-      <form id="orderForm" action="https://getform.io/f/agdpzdwb" method="POST">
-        <input type="hidden" name="orderSummary" id="orderSummary" value="">
-
-        <label for="name">Your Name:</label><br>
-        <input type="text" name="name" required><br>
-
-        <label for="contact">Email or Phone:</label><br>
-        <input type="text" name="contact" required><br>
-
-        <label for="address">Delivery Address:</label><br>
-        <input type="text" name="address" required><br>
-
-        <button type="submit">Send Order</button>
-      </form>
-    </div>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Happy Tails & Treats</p>
-  </footer>
-
-  <script>
-    let cart = [];
-
-    function addToCart(product, price) {
-      cart.push({ product, price });
-      updateCart();
-    }
-
-    function updateCart() {
-      const cartList = document.getElementById('cartItems');
-      const totalDisplay = document.getElementById('total');
-      const summaryInput = document.getElementById('orderSummary');
-      cartList.innerHTML = '';
-      let total = 0;
-      let summary = '';
-
-      cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.product} - $${item.price.toFixed(2)}`;
-        cartList.appendChild(li);
-        total += item.price;
-        summary += `${item.product} - $${item.price.toFixed(2)}\n`;
-      });
-
-      totalDisplay.textContent = total.toFixed(2);
-      summaryInput.value = summary + `Total: $${total.toFixed(2)}`;
-    }
-
-    document.getElementById('orderForm').addEventListener('submit', function () {
-      cart = [];
-      setTimeout(updateCart, 500);
-    });
-  </script>
-</body>
-</html>
+body {
+   font-family: 'Quicksand', sans-serif;
+   background-color: #fdfaf6;
+   color: #243533;
+   margin: 0;
+   padding: 0;
+   background-image: url('https://www.transparenttextures.com/patterns/paw-prints.png');
+   background-repeat: repeat;
+   background-attachment: fixed;
+ }
+ 
+ header {
+   background-color: #243533;
+   padding: 1rem;
+   text-align: center;
+   border-bottom: 4px dotted #964734;
+ }
+ 
+ header h1 {
+   margin: 0;
+   font-size: 2rem;
+   color: #fdf5e6;
+ }
+ 
+ nav {
+   margin-top: 0.5rem;
+ }
+ 
+ nav a {
+   margin: 0 1rem;
+   color: #fdf5e6;
+   text-decoration: none;
+   font-weight: 600;
+ }
+ 
+ main {
+   padding: 2rem;
+   max-width: 800px;
+   margin: 2rem auto;
+   background-color: #fffaf4;
+   border-radius: 16px;
+   box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
+ }
+ 
+ h2, h3 {
+   color: #B78953; /* Golden warmth */
+ }
+ 
+ .product {
+   background: #ffffff;
+   border: 2px solid #692721; /* Maple Spice */
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+   padding: 1.5rem;
+   margin-bottom: 2rem;
+   text-align: center;
+ }
+ 
+ .product img {
+   border-radius: 12px;
+   max-width: 100%;
+   margin-bottom: 1rem;
+ }
+ 
+ button {
+   background-color: #964734; /* Crimson Blaze */
+   border: none;
+   border-radius: 8px;
+   padding: 0.6rem 1.2rem;
+   color: #fffaf4;
+   font-weight: bold;
+   cursor: pointer;
+   transition: 0.3s;
+ }
+ 
+ button:hover {
+   background-color: #692721;
+ }
+ 
+ .cart, .checkout {
+   background: #fdf5e6;
+   border-radius: 12px;
+   padding: 1.5rem;
+   margin-top: 2rem;
+   border: 2px dashed #964734;
+ }
+ 
+ .checkout-btn {
+   background-color: #4C563F; /* Moss Mist */
+   color: white;
+ }
+ 
+ .checkout-btn:hover {
+   background-color: #243533;
+ }
+ 
+ footer {
+   text-align: center;
+   padding: 1rem;
+   background-color: #243533;
+   margin-top: 3rem;
+   font-size: 0.9rem;
+   color: #fdf5e6;
+ }
+ 
+ h2.divider {
+   border-bottom: 2px dashed #964734;
+   padding-bottom: 0.5rem;
+   margin-bottom: 1.5rem;
+   color: #964734;
+   text-align: center;
+ }
