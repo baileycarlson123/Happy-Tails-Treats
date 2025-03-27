@@ -1,22 +1,22 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #fffdf3;
-  color: #444;
+  background-color: #fffaf4;
+  color: #243533;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: #fff7d6;
+  background-color: #B78953; /* Amber Glow */
   padding: 1rem;
   text-align: center;
-  border-bottom: 4px dotted #ffe066;
+  border-bottom: 4px dotted #964734; /* Crimson Blaze */
 }
 
 header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #e6ac00;
+  color: #243533; /* Lagoon */
 }
 
 nav {
@@ -25,7 +25,7 @@ nav {
 
 nav a {
   margin: 0 1rem;
-  color: #e6ac00;
+  color: #243533;
   text-decoration: none;
   font-weight: 600;
 }
@@ -34,14 +34,14 @@ main {
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
-  background-color: #fffceb;
+  background-color: #fdfaf6;
   border-radius: 16px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
 }
 
 .product {
   background: #ffffff;
-  border: 2px solid #fff3c4;
+  border: 2px solid #B78953; /* Amber Glow */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   padding: 1.5rem;
@@ -56,51 +56,21 @@ main {
 }
 
 button {
-  background-color: #ffe066;
+  background-color: #964734; /* Crimson Blaze */
   border: none;
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
-  color: #333;
+  color: #fffaf4;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
 
 button:hover {
-  background-color: #ffd633;
+  background-color: #692721; /* Maple Spice */
 }
 
 .cart, .checkout {
-  background: #fff8d6;
+  background: #fdf7f2;
   border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  border: 2px dashed #ffe066;
-}
-
-.checkout-btn {
-  background-color: #c6f6d5;
-}
-
-.checkout-btn:hover {
-  background-color: #9ae6b4;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #fff7d6;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-h2.divider {
-  border-bottom: 2px dashed #ffe066;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-  color: #e6ac00;
-  text-align: center;
-}
-
-
+  padding: 1.5
