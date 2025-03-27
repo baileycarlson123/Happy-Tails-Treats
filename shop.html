@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shop | Happy Tails & Treats</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>🐾 Happy Tails Shop</h1>
+    <h1>Happy Tails Shop</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
@@ -18,48 +17,59 @@
   </header>
 
   <main>
-    <h2 class="divider">Farm Products 🐔</h2>
+    <h2>Farm Products 🐾</h2>
 
+    <!-- Products -->
     <div class="product">
       <h3>Dozen Eggs - $7.00</h3>
-      <img src="https://images.unsplash.com/photo-1589710759737-f0b6a0b7a1ee?auto=format&fit=crop&w=400&q=60" alt="Dozen Eggs">
+      <img src="https://images.unsplash.com/photo-1589710759737-f0b6a0b7a1ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="Dozen Eggs">
       <p>Fresh from the farm, 12 delicious eggs.</p>
       <button onclick="addToCart('Dozen Eggs', 7.00)">Add to Cart</button>
     </div>
 
     <div class="product">
       <h3>Half Dozen Eggs - $3.50</h3>
-      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=60" alt="Half Dozen Eggs">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="Half Dozen Eggs">
       <p>6 farm-fresh eggs, perfect for small households.</p>
       <button onclick="addToCart('Half Dozen Eggs', 3.50)">Add to Cart</button>
     </div>
 
     <div class="product">
       <h3>Homemade Dog Treats - $8.00</h3>
-      <img src="https://images.unsplash.com/photo-1623334079793-70e1d2b8a8eb?auto=format&fit=crop&w=400&q=60" alt="Dog Treats">
+      <img src="https://images.unsplash.com/photo-1623334079793-70e1d2b8a8eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="Dog Treats">
       <p>Made with peanut butter, oats, and love — 10 per pack.</p>
       <button onclick="addToCart('Dog Treats', 8.00)">Add to Cart</button>
     </div>
 
+    <!-- Cart -->
     <div class="cart">
-      <h2>Your Cart 🧺</h2>
+      <h2>Your Cart</h2>
       <ul id="cartItems"></ul>
       <p><strong>Total: $<span id="total">0.00</span></strong></p>
     </div>
 
+    <!-- Checkout Form -->
     <div class="checkout">
-      <h2>Checkout 💌</h2>
+      <h2>Checkout</h2>
       <form id="orderForm" action="https://getform.io/f/agdpzdwb" method="POST">
         <input type="hidden" name="orderSummary" id="orderSummary" value="">
-        <label>Your Name:<br><input type="text" name="name" required></label><br><br>
-        <label>Email or Phone:<br><input type="text" name="contact" required></label><br><br>
-        <button type="submit" class="checkout-btn">Send Order</button>
+
+        <label for="name">Your Name:</label>
+        <input type="text" name="name" required>
+
+        <label for="contact">Email or Phone:</label>
+        <input type="text" name="contact" required>
+
+        <label for="address">Delivery Address:</label>
+        <input type="text" name="address" required>
+
+        <button type="submit">Send Order</button>
       </form>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Happy Tails & Treats 🐾</p>
+    <p>&copy; 2025 Happy Tails & Treats</p>
   </footer>
 
   <script>
@@ -90,6 +100,7 @@
       summaryInput.value = summary + `Total: $${total.toFixed(2)}`;
     }
 
+    // Clear cart after submitting form
     document.getElementById('orderForm').addEventListener('submit', function () {
       cart = [];
       setTimeout(updateCart, 500);
@@ -97,6 +108,3 @@
   </script>
 </body>
 </html>
-
-
-
