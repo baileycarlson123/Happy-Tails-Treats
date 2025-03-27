@@ -4,7 +4,7 @@ body {
   color: #243533;
   margin: 0;
   padding: 0;
-  background-image: url('https://www.transparenttextures.com/patterns/paw-print.png');
+  background-image: url('https://i.imgur.com/QkpLw9r.png'); /* working paw print texture */
   background-repeat: repeat;
   background-attachment: fixed;
 }
@@ -86,7 +86,7 @@ button:hover {
 }
 
 .checkout-btn {
-  background-color: #4C563F;
+  background-color: #4C563F; /* Moss Mist */
   color: white;
 }
 
@@ -110,5 +110,4 @@ h2.divider {
   color: #964734;
   text-align: center;
 }
-
 
