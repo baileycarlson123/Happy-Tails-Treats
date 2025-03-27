@@ -1,22 +1,25 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #fffaf4;
+  background-color: #fdfaf6;
   color: #243533;
   margin: 0;
   padding: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/lined-paper.png'); /* Subtle repeating texture */
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 header {
-  background-color: #243533; /* Deep forest green */
+  background-color: #243533;
   padding: 1rem;
   text-align: center;
-  border-bottom: 4px dotted #964734; /* Crimson Blaze */
+  border-bottom: 4px dotted #964734;
 }
 
 header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #fdf5e6; /* Creamy light text */
+  color: #fdf5e6;
 }
 
 nav {
@@ -33,15 +36,19 @@ nav a {
 main {
   padding: 2rem;
   max-width: 800px;
-  margin: 0 auto;
-  background-color: #fdfaf6;
+  margin: 2rem auto;
+  background-color: #fffaf4;
   border-radius: 16px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
+}
+
+h2, h3 {
+  color: #B78953; /* Golden warmth */
 }
 
 .product {
   background: #ffffff;
-  border: 2px solid #692721; /* Maple Spice */
+  border: 2px solid #692721;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   padding: 1.5rem;
@@ -56,7 +63,7 @@ main {
 }
 
 button {
-  background-color: #964734; /* Crimson Blaze */
+  background-color: #964734;
   border: none;
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
@@ -67,7 +74,7 @@ button {
 }
 
 button:hover {
-  background-color: #692721; /* Maple Spice */
+  background-color: #692721;
 }
 
 .cart, .checkout {
@@ -75,16 +82,16 @@ button:hover {
   border-radius: 12px;
   padding: 1.5rem;
   margin-top: 2rem;
-  border: 2px dashed #964734; /* Crimson Blaze */
+  border: 2px dashed #964734;
 }
 
 .checkout-btn {
-  background-color: #4C563F; /* Moss Mist */
+  background-color: #4C563F;
   color: white;
 }
 
 .checkout-btn:hover {
-  background-color: #243533; /* Deep forest */
+  background-color: #243533;
 }
 
 footer {
@@ -103,3 +110,4 @@ h2.divider {
   color: #964734;
   text-align: center;
 }
+
