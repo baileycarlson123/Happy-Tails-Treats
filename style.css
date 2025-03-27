@@ -1,29 +1,89 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #fff8f1;
+  color: #444;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
 }
 
-header, footer {
-  background-color: #f3f3f3;
+header {
+  background-color: #ffeaea;
   padding: 1rem;
   text-align: center;
+  border-bottom: 4px dotted #ffb3c6;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #ff6f91;
 }
 
 nav a {
-  margin: 0 10px;
+  margin: 0 1rem;
+  color: #ff6f91;
   text-decoration: none;
-  color: #333;
+  font-weight: 600;
 }
 
 main {
   padding: 2rem;
 }
 
-form input, form select {
-  width: 100%;
-  max-width: 300px;
-  padding: 8px;
-  margin-bottom: 1rem;
+.product {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.product img {
+  border-radius: 12px;
+  max-width: 100%;
+}
+
+button {
+  background-color: #ffb3c6;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #ff6f91;
+}
+
+.cart, .checkout {
+  background: #fcefee;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.checkout-btn {
+  background-color: #a0e7e5;
+}
+
+.checkout-btn:hover {
+  background-color: #69c9c9;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #ffeaea;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+h2.divider {
+  border-bottom: 2px dashed #ffb3c6;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
