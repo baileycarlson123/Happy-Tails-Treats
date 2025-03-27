@@ -44,6 +44,7 @@ main {
 
 h2, h3 {
   color: #B78953; /* Golden warmth */
+  font-family: 'Quicksand', sans-serif;
 }
 
 .product {
@@ -54,6 +55,7 @@ h2, h3 {
   padding: 1.5rem;
   margin-bottom: 2rem;
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .product img {
@@ -71,6 +73,7 @@ button {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  font-family: 'Quicksand', sans-serif;
 }
 
 button:hover {
@@ -83,6 +86,31 @@ button:hover {
   padding: 1.5rem;
   margin-top: 2rem;
   border: 2px dashed #964734;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.cart h2, .checkout h2 {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.checkout label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #243533;
+}
+
+.checkout input[type="text"],
+.checkout input[type="email"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .checkout-btn {
@@ -101,6 +129,7 @@ footer {
   margin-top: 3rem;
   font-size: 0.9rem;
   color: #fdf5e6;
+  font-family: 'Quicksand', sans-serif;
 }
 
 h2.divider {
@@ -109,5 +138,6 @@ h2.divider {
   margin-bottom: 1.5rem;
   color: #964734;
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
 }
 
