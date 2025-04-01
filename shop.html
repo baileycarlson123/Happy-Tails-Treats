@@ -76,16 +76,12 @@
       <h2>💌 Checkout</h2>
       <form id="orderForm" action="https://getform.io/f/agdpzdwb" method="POST">
         <input type="hidden" name="orderSummary" id="orderSummary" value="">
-
         <label for="name">Your Name:</label><br>
         <input type="text" name="name" required><br>
-
         <label for="contact">Email or Phone:</label><br>
         <input type="text" name="contact" required><br>
-
         <label for="address">Delivery Address:</label><br>
         <input type="text" name="address" required><br>
-
         <button type="submit">Send Order</button>
       </form>
     </div>
@@ -95,10 +91,11 @@
     <p>&copy; 2025 Happy Tails & Treats</p>
   </footer>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-    import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore-compat.js"></script>
 
+  <script>
     const firebaseConfig = {
       apiKey: "AIzaSyAWzbNUtshen0sSKzYDswmo3t18qL1b6kA",
       authDomain: "happy-tails-inventory.firebaseapp.com",
@@ -109,17 +106,17 @@
       measurementId: "G-LB05RHGW5W"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
     let availableEggs = 0;
     let cart = [];
 
     async function fetchEggInventory() {
-      const docRef = doc(db, "inventory", "eggs");
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        availableEggs = docSnap.data().count;
+      const docRef = db.collection("inventory").doc("eggs");
+      const doc = await docRef.get();
+      if (doc.exists) {
+        availableEggs = doc.data().count;
         checkEggInventory();
       } else {
         console.error("No egg inventory found.");
@@ -127,8 +124,7 @@
     }
 
     async function updateEggInventory(newCount) {
-      const docRef = doc(db, "inventory", "eggs");
-      await updateDoc(docRef, { count: newCount });
+      await db.collection("inventory").doc("eggs").update({ count: newCount });
     }
 
     window.addToCart = async function(product, price) {
