@@ -41,7 +41,7 @@
   </header>
 
   <main>
-    <h2>Farm Products </h2>
+    <h2>Farm Products</h2>
 
     <div class="product product-container" id="dozenProduct">
       <h3>Dozen Eggs - $7.00</h3>
@@ -95,23 +95,55 @@
     <p>&copy; 2025 Happy Tails & Treats</p>
   </footer>
 
-  <script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAWzbNUtshen0sSKzYDswmo3t18qL1b6kA",
+      authDomain: "happy-tails-inventory.firebaseapp.com",
+      projectId: "happy-tails-inventory",
+      storageBucket: "happy-tails-inventory.appspot.com",
+      messagingSenderId: "495308692644",
+      appId: "1:495308692644:web:7603112f92e87ffadf9a31",
+      measurementId: "G-LB05RHGW5W"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    let availableEggs = 0;
     let cart = [];
 
-    // 🥚 EDIT THIS NUMBER EACH WEEK
-    let availableEggs = 18;
+    async function fetchEggInventory() {
+      const docRef = doc(db, "inventory", "eggs");
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        availableEggs = docSnap.data().count;
+        checkEggInventory();
+      } else {
+        console.error("No egg inventory found.");
+      }
+    }
 
-    function addToCart(product, price) {
+    async function updateEggInventory(newCount) {
+      const docRef = doc(db, "inventory", "eggs");
+      await updateDoc(docRef, { count: newCount });
+    }
+
+    window.addToCart = async function(product, price) {
       if (product === "Dozen Eggs" && availableEggs >= 12) {
         availableEggs -= 12;
       } else if (product === "Half Dozen Eggs" && availableEggs >= 6) {
         availableEggs -= 6;
+      } else {
+        return;
       }
 
       cart.push({ product, price });
       updateCart();
-      checkEggInventory(); // update sold out display
-    }
+      checkEggInventory();
+    };
 
     function updateCart() {
       const cartList = document.getElementById('cartItems');
@@ -133,7 +165,13 @@
       summaryInput.value = summary + `Total: $${total.toFixed(2)}`;
     }
 
-    document.getElementById('orderForm').addEventListener('submit', function () {
+    document.getElementById('orderForm').addEventListener('submit', async function () {
+      let eggTotal = 0;
+      cart.forEach(item => {
+        if (item.product === 'Dozen Eggs') eggTotal += 12;
+        if (item.product === 'Half Dozen Eggs') eggTotal += 6;
+      });
+      await updateEggInventory(availableEggs);
       cart = [];
       setTimeout(updateCart, 500);
     });
@@ -159,8 +197,8 @@
       }
     }
 
-    // ✅ Run this on load too
-    checkEggInventory();
+    window.addEventListener('DOMContentLoaded', fetchEggInventory);
   </script>
 </body>
 </html>
+
