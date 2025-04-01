@@ -28,6 +28,19 @@
     .product-container {
       position: relative;
     }
+
+    .cart button {
+      margin: 0 5px;
+      font-size: 1rem;
+      padding: 0.2rem 0.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .cart button:hover {
+      background-color: #eee;
+    }
   </style>
 </head>
 <body>
@@ -110,7 +123,7 @@
     const db = firebase.firestore();
 
     let availableEggs = 0;
-    let cart = [];
+    let cart = {};
 
     async function fetchEggInventory() {
       const docRef = db.collection("inventory").doc("eggs");
@@ -127,48 +140,75 @@
       await db.collection("inventory").doc("eggs").update({ count: newCount });
     }
 
-    window.addToCart = async function(product, price) {
-      if (product === "Dozen Eggs" && availableEggs >= 12) {
-        availableEggs -= 12;
-      } else if (product === "Half Dozen Eggs" && availableEggs >= 6) {
-        availableEggs -= 6;
+    window.addToCart = function(product, price) {
+      const safeProduct = product.replace(/'/g, "\\'");
+      let eggCount = product === "Dozen Eggs" ? 12 : product === "Half Dozen Eggs" ? 6 : 0;
+      if (eggCount > 0 && availableEggs < eggCount) return;
+
+      if (!cart[product]) {
+        cart[product] = { price, quantity: 1 };
       } else {
-        return;
+        cart[product].quantity += 1;
       }
 
-      cart.push({ product, price });
+      if (eggCount > 0) availableEggs -= eggCount;
+
       updateCart();
       checkEggInventory();
     };
+
+    function removeFromCart(product) {
+      if (!cart[product]) return;
+
+      let eggCount = product === "Dozen Eggs" ? 12 : product === "Half Dozen Eggs" ? 6 : 0;
+      cart[product].quantity -= 1;
+
+      if (eggCount > 0) availableEggs += eggCount;
+
+      if (cart[product].quantity <= 0) {
+        delete cart[product];
+      }
+
+      updateCart();
+      checkEggInventory();
+    }
 
     function updateCart() {
       const cartList = document.getElementById('cartItems');
       const totalDisplay = document.getElementById('total');
       const summaryInput = document.getElementById('orderSummary');
+
       cartList.innerHTML = '';
       let total = 0;
       let summary = '';
 
-      cart.forEach(item => {
+      for (let product in cart) {
+        const item = cart[product];
+        const encodedProduct = product.replace(/'/g, "\\'");
         const li = document.createElement('li');
-        li.textContent = `${item.product} - $${item.price.toFixed(2)}`;
+        li.innerHTML = `
+          ${product} - $${item.price.toFixed(2)} x ${item.quantity}
+          <button onclick="addToCart('${encodedProduct}', ${item.price})">+</button>
+          <button onclick="removeFromCart('${encodedProduct}')">−</button>
+        `;
         cartList.appendChild(li);
-        total += item.price;
-        summary += `${item.product} - $${item.price.toFixed(2)}\n`;
-      });
+        total += item.price * item.quantity;
+        summary += `${product} - $${item.price.toFixed(2)} x ${item.quantity}\n`;
+      }
 
       totalDisplay.textContent = total.toFixed(2);
       summaryInput.value = summary + `Total: $${total.toFixed(2)}`;
     }
 
     document.getElementById('orderForm').addEventListener('submit', async function () {
-      let eggTotal = 0;
-      cart.forEach(item => {
-        if (item.product === 'Dozen Eggs') eggTotal += 12;
-        if (item.product === 'Half Dozen Eggs') eggTotal += 6;
-      });
+      let eggsToSubtract = 0;
+      for (let product in cart) {
+        if (product === 'Dozen Eggs') eggsToSubtract += cart[product].quantity * 12;
+        if (product === 'Half Dozen Eggs') eggsToSubtract += cart[product].quantity * 6;
+      }
+
       await updateEggInventory(availableEggs);
-      cart = [];
+      cart = {};
       setTimeout(updateCart, 500);
     });
 
@@ -184,12 +224,20 @@
         dozenBtn.disabled = true;
         dozenSold.style.display = 'block';
         dozenCard.classList.add('sold-out-style');
+      } else {
+        dozenBtn.disabled = false;
+        dozenSold.style.display = 'none';
+        dozenCard.classList.remove('sold-out-style');
       }
 
       if (availableEggs < 6) {
         halfDozenBtn.disabled = true;
         halfDozenSold.style.display = 'block';
         halfCard.classList.add('sold-out-style');
+      } else {
+        halfDozenBtn.disabled = false;
+        halfDozenSold.style.display = 'none';
+        halfCard.classList.remove('sold-out-style');
       }
     }
 
@@ -197,4 +245,5 @@
   </script>
 </body>
 </html>
+
 
