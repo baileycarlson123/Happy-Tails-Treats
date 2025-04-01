@@ -6,6 +6,29 @@
   <title>Shop | Happy Tails & Treats</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .sold-out {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      color: red;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .product.sold-out-style {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .product-container {
+      position: relative;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -20,18 +43,20 @@
   <main>
     <h2>Farm Products </h2>
 
-    <div class="product">
+    <div class="product product-container" id="dozenProduct">
       <h3>Dozen Eggs - $7.00</h3>
       <img src="dozen%20eggs%20image.jpeg" alt="Dozen Eggs">
       <p>Fresh from the farm, 12 delicious eggs.</p>
-      <button onclick="addToCart('Dozen Eggs', 7.00)">Add to Cart</button>
+      <button id="dozenBtn" onclick="addToCart('Dozen Eggs', 7.00)">Add to Cart</button>
+      <span class="sold-out" id="dozenSold" style="display: none;">Sold Out</span>
     </div>
 
-    <div class="product">
+    <div class="product product-container" id="halfDozenProduct">
       <h3>Half Dozen Eggs - $3.50</h3>
       <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="Half Dozen Eggs">
       <p>6 farm-fresh eggs, perfect for small households.</p>
-      <button onclick="addToCart('Half Dozen Eggs', 3.50)">Add to Cart</button>
+      <button id="halfDozenBtn" onclick="addToCart('Half Dozen Eggs', 3.50)">Add to Cart</button>
+      <span class="sold-out" id="halfDozenSold" style="display: none;">Sold Out</span>
     </div>
 
     <div class="product">
@@ -73,9 +98,19 @@
   <script>
     let cart = [];
 
+    // 🥚 EDIT THIS NUMBER EACH WEEK
+    let availableEggs = 18;
+
     function addToCart(product, price) {
+      if (product === "Dozen Eggs" && availableEggs >= 12) {
+        availableEggs -= 12;
+      } else if (product === "Half Dozen Eggs" && availableEggs >= 6) {
+        availableEggs -= 6;
+      }
+
       cart.push({ product, price });
       updateCart();
+      checkEggInventory(); // update sold out display
     }
 
     function updateCart() {
@@ -102,7 +137,30 @@
       cart = [];
       setTimeout(updateCart, 500);
     });
+
+    function checkEggInventory() {
+      const dozenBtn = document.getElementById('dozenBtn');
+      const halfDozenBtn = document.getElementById('halfDozenBtn');
+      const dozenSold = document.getElementById('dozenSold');
+      const halfDozenSold = document.getElementById('halfDozenSold');
+      const dozenCard = document.getElementById('dozenProduct');
+      const halfCard = document.getElementById('halfDozenProduct');
+
+      if (availableEggs < 12) {
+        dozenBtn.disabled = true;
+        dozenSold.style.display = 'block';
+        dozenCard.classList.add('sold-out-style');
+      }
+
+      if (availableEggs < 6) {
+        halfDozenBtn.disabled = true;
+        halfDozenSold.style.display = 'block';
+        halfCard.classList.add('sold-out-style');
+      }
+    }
+
+    // ✅ Run this on load too
+    checkEggInventory();
   </script>
 </body>
 </html>
-
