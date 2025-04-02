@@ -6,7 +6,6 @@
   <title>Shop | Happy Tails & Treats</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
   <header>
@@ -25,7 +24,7 @@
       <h3>Dozen Eggs - $7.00</h3>
       <img src="dozen%20eggs%20image.jpeg" alt="Dozen Eggs">
       <p>Fresh from the farm, 12 delicious eggs.</p>
-      <button id="dozenBtn" onclick="addToCart(event, 'Dozen Eggs', 7.00)">Add to Cart</button>
+      <button id="dozenBtn" onclick="addToCart('Dozen Eggs', 7.00)">Add to Cart</button>
       <span class="sold-out" id="dozenSold" style="display: none;">Sold Out</span>
     </div>
 
@@ -33,7 +32,7 @@
       <h3>Half Dozen Eggs - $4.00</h3>
       <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="Half Dozen Eggs">
       <p>6 farm-fresh eggs, perfect for small households.</p>
-      <button id="halfDozenBtn" onclick="addToCart(event, 'Half Dozen Eggs', 4.00)">Add to Cart</button>
+      <button id="halfDozenBtn" onclick="addToCart('Half Dozen Eggs', 4.00)">Add to Cart</button>
       <span class="sold-out" id="halfDozenSold" style="display: none;">Sold Out</span>
     </div>
 
@@ -41,7 +40,7 @@
       <h3>Homemade Dog Treats - $8.00</h3>
       <img src="https://images.unsplash.com/photo-1623334079793-70e1d2b8a8eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="Dog Treats">
       <p>Made with peanut butter, oats, and love — 10 per pack.</p>
-      <button id="treatBtn" onclick="addToCart(event, 'Dog Treats', 8.00)">Add to Cart</button>
+      <button id="treatBtn" onclick="addToCart('Dog Treats', 8.00)">Add to Cart</button>
       <span class="sold-out" id="treatSold" style="display: none;">Sold Out</span>
     </div>
 
@@ -104,7 +103,7 @@
       await db.collection("inventory").doc("treats").update({ count: availableTreats });
     }
 
-    window.addToCart = function(event, product, price) {
+    window.addToCart = function(product, price) {
       const safeProduct = product.replace(/'/g, "\\'");
       let eggCount = product === "Dozen Eggs" ? 12 : product === "Half Dozen Eggs" ? 6 : 0;
       let treatCount = product === "Dog Treats" ? 1 : 0;
@@ -122,7 +121,6 @@
 
       updateCart();
       checkInventory();
-      launchConfetti(event.target); // 🎉 Right above the clicked button
     };
 
     function removeFromCart(product) {
@@ -155,18 +153,18 @@
         const item = cart[product];
         const encodedProduct = product.replace(/'/g, "\\'");
         const li = document.createElement('li');
-        li.innerHTML = `
+        li.innerHTML = 
           ${product} - $${item.price.toFixed(2)} x ${item.quantity}
-          <button onclick="addToCart(event, '${encodedProduct}', ${item.price})">+</button>
+          <button onclick="addToCart('${encodedProduct}', ${item.price})">+</button>
           <button onclick="removeFromCart('${encodedProduct}')">−</button>
-        `;
+        ;
         cartList.appendChild(li);
         total += item.price * item.quantity;
-        summary += `${product} - $${item.price.toFixed(2)} x ${item.quantity}\n`;
+        summary += ${product} - $${item.price.toFixed(2)} x ${item.quantity}\n;
       }
 
       totalDisplay.textContent = total.toFixed(2);
-      summaryInput.value = summary + `Total: $${total.toFixed(2)}`;
+      summaryInput.value = summary + Total: $${total.toFixed(2)};
     }
 
     document.getElementById('orderForm').addEventListener('submit', async function () {
@@ -188,6 +186,7 @@
       const halfCard = document.getElementById('halfDozenProduct');
       const treatCard = document.getElementById('treatProduct');
 
+      // Eggs
       if (availableEggs < 12) {
         dozenBtn.disabled = true;
         dozenSold.style.display = 'block';
@@ -208,6 +207,7 @@
         halfCard.classList.remove('sold-out-style');
       }
 
+      // Treats
       if (availableTreats < 1) {
         treatBtn.disabled = true;
         treatSold.style.display = 'block';
@@ -217,20 +217,6 @@
         treatSold.style.display = 'none';
         treatCard.classList.remove('sold-out-style');
       }
-    }
-
-    function launchConfetti(button) {
-      const rect = button.getBoundingClientRect();
-      confetti({
-        particleCount: 40,
-        startVelocity: 25,
-        spread: 45,
-        gravity: 0.6,
-        origin: {
-          x: (rect.left + rect.width / 2) / window.innerWidth,
-          y: (rect.top - 10) / window.innerHeight // slightly above the button
-        }
-      });
     }
 
     window.addEventListener('DOMContentLoaded', fetchInventory);
