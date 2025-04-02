@@ -121,6 +121,15 @@
 
       updateCart();
       checkInventory();
+
+      // ✨ Button pulse effect on click
+      const activeButton = document.activeElement;
+      if (activeButton && activeButton.tagName === "BUTTON") {
+        activeButton.classList.add("clicked");
+        setTimeout(() => {
+          activeButton.classList.remove("clicked");
+        }, 300);
+      }
     };
 
     function removeFromCart(product) {
