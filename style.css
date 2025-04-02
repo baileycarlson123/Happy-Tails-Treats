@@ -1,1 +1,204 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #fdfaf6;
+  color: #FFD700;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/paw-prints.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+header {
+  background-color: #FFD700;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 4px dotted #964734;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #fdf5e6;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: #fdf5e6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: #fffaf4;
+  border-radius: 16px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
+}
+
+h2, h3 {
+  color: #B78953; /* Golden warmth */
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+}
+
+.product {
+  background: #ffffff;
+  border: 2px solid #692721; /* Maple Spice */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.product img {
+  border-radius: 12px;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.product p {
+  text-align: center;
+}
+
+button {
+  background-color: #964734; /* Crimson Blaze */
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  color: #fffaf4;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Quicksand', sans-serif;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #692721;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.cart, .checkout {
+  background: #d1d8d4; /* Soft Sage Green */
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border: 2px dashed #964734;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.cart h2, .checkout h2 {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.checkout label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #243533;
+}
+
+.checkout input[type="text"],
+.checkout input[type="email"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.checkout-btn {
+  background-color: #4C563F; /* Moss Mist */
+  color: white;
+}
+
+.checkout-btn:hover {
+  background-color: #243533;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #243533;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #fdf5e6;
+  font-family: 'Quicksand', sans-serif;
+}
+
+h2.divider {
+  border-bottom: 2px dashed #964734;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #964734;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* 🔥 Moved from shop.html inline style */
+.sold-out {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+.product.sold-out-style {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.product-container {
+  position: relative;
+}
+
+/* Cart item buttons ( + and − ) */
+.cart button {
+  margin: 0 5px;
+  font-size: 1rem;
+  padding: 0.2rem 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart button:hover {
+  background-color: #eee;
+}
+
+/* ✨ Button pulse effect */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+button.clicked {
+  animation: pulse 0.3s ease;
+}
 
