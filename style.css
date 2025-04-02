@@ -184,3 +184,26 @@ h2.divider {
 .cart button:hover {
   background-color: #eee;
 }
+
+/* 🎉 Confetti effect styles */
+.confetti {
+  position: absolute;
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #FFD700;
+  animation: explode 0.6s ease-out forwards;
+  z-index: 1000;
+}
+
+@keyframes explode {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.8);
+  }
+}
