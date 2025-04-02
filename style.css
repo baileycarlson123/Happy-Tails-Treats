@@ -1,7 +1,7 @@
 body {
   font-family: 'Quicksand', sans-serif;
   background-color: #fdfaf6;
-  color: #FFD700;
+  color: #243533;
   margin: 0;
   padding: 0;
   background-image: url('https://www.transparenttextures.com/patterns/paw-prints.png');
@@ -10,7 +10,7 @@ body {
 }
 
 header {
-  background-color: #FFD700;
+  background-color: #243533;
   padding: 1rem;
   text-align: center;
   border-bottom: 4px dotted #964734;
