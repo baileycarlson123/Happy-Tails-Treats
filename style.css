@@ -83,7 +83,7 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  background-color: #692721; /* keeps your existing style */
+  background-color: #692721;
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
@@ -183,4 +183,21 @@ h2.divider {
 
 .cart button:hover {
   background-color: #eee;
+}
+
+/* ✨ Button pulse effect */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+button.clicked {
+  animation: pulse 0.3s ease;
 }
