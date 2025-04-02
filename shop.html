@@ -153,18 +153,18 @@
         const item = cart[product];
         const encodedProduct = product.replace(/'/g, "\\'");
         const li = document.createElement('li');
-        li.innerHTML = 
+        li.innerHTML = `
           ${product} - $${item.price.toFixed(2)} x ${item.quantity}
           <button onclick="addToCart('${encodedProduct}', ${item.price})">+</button>
           <button onclick="removeFromCart('${encodedProduct}')">−</button>
-        ;
+        `;
         cartList.appendChild(li);
         total += item.price * item.quantity;
-        summary += ${product} - $${item.price.toFixed(2)} x ${item.quantity}\n;
+        summary += `${product} - $${item.price.toFixed(2)} x ${item.quantity}\n`;
       }
 
       totalDisplay.textContent = total.toFixed(2);
-      summaryInput.value = summary + Total: $${total.toFixed(2)};
+      summaryInput.value = summary + `Total: $${total.toFixed(2)}`;
     }
 
     document.getElementById('orderForm').addEventListener('submit', async function () {
@@ -186,7 +186,6 @@
       const halfCard = document.getElementById('halfDozenProduct');
       const treatCard = document.getElementById('treatProduct');
 
-      // Eggs
       if (availableEggs < 12) {
         dozenBtn.disabled = true;
         dozenSold.style.display = 'block';
@@ -207,7 +206,6 @@
         halfCard.classList.remove('sold-out-style');
       }
 
-      // Treats
       if (availableTreats < 1) {
         treatBtn.disabled = true;
         treatSold.style.display = 'block';
