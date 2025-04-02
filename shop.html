@@ -72,11 +72,12 @@
       <span class="sold-out" id="halfDozenSold" style="display: none;">Sold Out</span>
     </div>
 
-    <div class="product">
+    <div class="product product-container" id="treatProduct">
       <h3>Homemade Dog Treats - $8.00</h3>
       <img src="https://images.unsplash.com/photo-1623334079793-70e1d2b8a8eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=60" alt="Dog Treats">
       <p>Made with peanut butter, oats, and love — 10 per pack.</p>
-      <button onclick="addToCart('Dog Treats', 8.00)">Add to Cart</button>
+      <button id="treatBtn" onclick="addToCart('Dog Treats', 8.00)">Add to Cart</button>
+      <span class="sold-out" id="treatSold" style="display: none;">Sold Out</span>
     </div>
 
     <div class="cart">
@@ -104,7 +105,6 @@
     <p>&copy; 2025 Happy Tails & Treats</p>
   </footer>
 
-  <!-- Firebase Scripts -->
   <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore-compat.js"></script>
 
@@ -123,27 +123,28 @@
     const db = firebase.firestore();
 
     let availableEggs = 0;
+    let availableTreats = 0;
     let cart = {};
 
-    async function fetchEggInventory() {
-      const docRef = db.collection("inventory").doc("eggs");
-      const doc = await docRef.get();
-      if (doc.exists) {
-        availableEggs = doc.data().count;
-        checkEggInventory();
-      } else {
-        console.error("No egg inventory found.");
-      }
+    async function fetchInventory() {
+      const eggsDoc = await db.collection("inventory").doc("eggs").get();
+      const treatsDoc = await db.collection("inventory").doc("treats").get();
+      if (eggsDoc.exists) availableEggs = eggsDoc.data().count;
+      if (treatsDoc.exists) availableTreats = treatsDoc.data().count;
+      checkInventory();
     }
 
-    async function updateEggInventory(newCount) {
-      await db.collection("inventory").doc("eggs").update({ count: newCount });
+    async function updateInventory() {
+      await db.collection("inventory").doc("eggs").update({ count: availableEggs });
+      await db.collection("inventory").doc("treats").update({ count: availableTreats });
     }
 
     window.addToCart = function(product, price) {
       const safeProduct = product.replace(/'/g, "\\'");
       let eggCount = product === "Dozen Eggs" ? 12 : product === "Half Dozen Eggs" ? 6 : 0;
-      if (eggCount > 0 && availableEggs < eggCount) return;
+      let treatCount = product === "Dog Treats" ? 1 : 0;
+
+      if ((eggCount && availableEggs < eggCount) || (treatCount && availableTreats < 1)) return;
 
       if (!cart[product]) {
         cart[product] = { price, quantity: 1 };
@@ -152,25 +153,27 @@
       }
 
       if (eggCount > 0) availableEggs -= eggCount;
+      if (treatCount > 0) availableTreats -= 1;
 
       updateCart();
-      checkEggInventory();
+      checkInventory();
     };
 
     function removeFromCart(product) {
       if (!cart[product]) return;
 
       let eggCount = product === "Dozen Eggs" ? 12 : product === "Half Dozen Eggs" ? 6 : 0;
+      let treatCount = product === "Dog Treats" ? 1 : 0;
+
       cart[product].quantity -= 1;
 
       if (eggCount > 0) availableEggs += eggCount;
+      if (treatCount > 0) availableTreats += 1;
 
-      if (cart[product].quantity <= 0) {
-        delete cart[product];
-      }
+      if (cart[product].quantity <= 0) delete cart[product];
 
       updateCart();
-      checkEggInventory();
+      checkInventory();
     }
 
     function updateCart() {
@@ -201,25 +204,25 @@
     }
 
     document.getElementById('orderForm').addEventListener('submit', async function () {
-      let eggsToSubtract = 0;
-      for (let product in cart) {
-        if (product === 'Dozen Eggs') eggsToSubtract += cart[product].quantity * 12;
-        if (product === 'Half Dozen Eggs') eggsToSubtract += cart[product].quantity * 6;
-      }
-
-      await updateEggInventory(availableEggs);
+      await updateInventory();
       cart = {};
       setTimeout(updateCart, 500);
     });
 
-    function checkEggInventory() {
+    function checkInventory() {
       const dozenBtn = document.getElementById('dozenBtn');
       const halfDozenBtn = document.getElementById('halfDozenBtn');
+      const treatBtn = document.getElementById('treatBtn');
+
       const dozenSold = document.getElementById('dozenSold');
       const halfDozenSold = document.getElementById('halfDozenSold');
+      const treatSold = document.getElementById('treatSold');
+
       const dozenCard = document.getElementById('dozenProduct');
       const halfCard = document.getElementById('halfDozenProduct');
+      const treatCard = document.getElementById('treatProduct');
 
+      // Eggs
       if (availableEggs < 12) {
         dozenBtn.disabled = true;
         dozenSold.style.display = 'block';
@@ -239,11 +242,21 @@
         halfDozenSold.style.display = 'none';
         halfCard.classList.remove('sold-out-style');
       }
+
+      // Treats
+      if (availableTreats < 1) {
+        treatBtn.disabled = true;
+        treatSold.style.display = 'block';
+        treatCard.classList.add('sold-out-style');
+      } else {
+        treatBtn.disabled = false;
+        treatSold.style.display = 'none';
+        treatCard.classList.remove('sold-out-style');
+      }
     }
 
-    window.addEventListener('DOMContentLoaded', fetchEggInventory);
+    window.addEventListener('DOMContentLoaded', fetchInventory);
   </script>
 </body>
 </html>
-
 
