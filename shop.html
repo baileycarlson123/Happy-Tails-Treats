@@ -6,6 +6,7 @@
   <title>Shop | Happy Tails & Treats</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
   <header>
@@ -121,6 +122,7 @@
 
       updateCart();
       checkInventory();
+      launchConfetti(); // 🎉 Trigger confetti after adding
     };
 
     function removeFromCart(product) {
@@ -186,7 +188,6 @@
       const halfCard = document.getElementById('halfDozenProduct');
       const treatCard = document.getElementById('treatProduct');
 
-      // Eggs
       if (availableEggs < 12) {
         dozenBtn.disabled = true;
         dozenSold.style.display = 'block';
@@ -207,7 +208,6 @@
         halfCard.classList.remove('sold-out-style');
       }
 
-      // Treats
       if (availableTreats < 1) {
         treatBtn.disabled = true;
         treatSold.style.display = 'block';
@@ -217,6 +217,14 @@
         treatSold.style.display = 'none';
         treatCard.classList.remove('sold-out-style');
       }
+    }
+
+    function launchConfetti() {
+      confetti({
+        particleCount: 60,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
     }
 
     window.addEventListener('DOMContentLoaded', fetchInventory);
