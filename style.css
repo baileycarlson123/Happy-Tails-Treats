@@ -43,14 +43,14 @@ main {
 }
 
 h2, h3 {
-  color: #B78953; /* Golden warmth */
+  color: #B78953;
   font-family: 'Quicksand', sans-serif;
   text-align: center;
 }
 
 .product {
   background: #ffffff;
-  border: 2px solid #692721; /* Maple Spice */
+  border: 2px solid #692721;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   padding: 1.5rem;
@@ -70,7 +70,7 @@ h2, h3 {
 }
 
 button {
-  background-color: #964734; /* Crimson Blaze */
+  background-color: #964734;
   border: none;
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
@@ -87,25 +87,8 @@ button:hover {
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-/* ✨ Button pulse effect */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-button.clicked {
-  animation: pulse 0.3s ease;
-}
-
 .cart, .checkout {
-  background: #d1d8d4; /* Soft Sage Green */
+  background: #d1d8d4;
   border-radius: 12px;
   padding: 1.5rem;
   margin-top: 2rem;
@@ -138,7 +121,7 @@ button.clicked {
 }
 
 .checkout-btn {
-  background-color: #4C563F; /* Moss Mist */
+  background-color: #4C563F;
   color: white;
 }
 
@@ -165,7 +148,6 @@ h2.divider {
   font-family: 'Quicksand', sans-serif;
 }
 
-/* 🔥 Moved from shop.html inline style */
 .sold-out {
   position: absolute;
   top: 40%;
@@ -188,7 +170,6 @@ h2.divider {
   position: relative;
 }
 
-/* Cart item buttons ( + and − ) */
 .cart button {
   margin: 0 5px;
   font-size: 1rem;
