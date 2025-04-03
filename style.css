@@ -182,3 +182,20 @@ h2.divider {
 .cart button:hover {
   background-color: #eee;
 }
+
+/* ✨ Flash glow effect */
+@keyframes flashGlow {
+  0% {
+    box-shadow: 0 0 0px #ffd1d1;
+  }
+  50% {
+    box-shadow: 0 0 12px 4px #ffd1d1;
+  }
+  100% {
+    box-shadow: 0 0 0px #ffd1d1;
+  }
+}
+
+button.flash-glow {
+  animation: flashGlow 0.4s ease;
+}
