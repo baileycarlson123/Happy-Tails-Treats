@@ -87,6 +87,23 @@ button:hover {
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
+/* ✨ Button pulse effect */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+button.clicked {
+  animation: pulse 0.3s ease;
+}
+
 .cart, .checkout {
   background: #d1d8d4; /* Soft Sage Green */
   border-radius: 12px;
@@ -184,21 +201,3 @@ h2.divider {
 .cart button:hover {
   background-color: #eee;
 }
-
-/* ✨ Button pulse effect */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-button.clicked {
-  animation: pulse 0.3s ease;
-}
-
