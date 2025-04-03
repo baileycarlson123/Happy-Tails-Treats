@@ -121,6 +121,15 @@
 
       updateCart();
       checkInventory();
+
+      // ✨ Flash glow
+      const activeButton = document.activeElement;
+      if (activeButton && activeButton.tagName === "BUTTON") {
+        activeButton.classList.add("flash-glow");
+        setTimeout(() => {
+          activeButton.classList.remove("flash-glow");
+        }, 300);
+      }
     };
 
     function removeFromCart(product) {
