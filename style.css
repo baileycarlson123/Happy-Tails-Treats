@@ -183,16 +183,16 @@ h2.divider {
   background-color: #eee;
 }
 
-/* ✨ Flash glow effect */
+/* ✨ Flash Glow Effect */
 @keyframes flashGlow {
   0% {
-    box-shadow: 0 0 0px #ffd1d1;
+    box-shadow: 0 0 0px #ffb6b6;
   }
   50% {
-    box-shadow: 0 0 12px 4px #ffd1d1;
+    box-shadow: 0 0 8px 5px #ffb6b6;
   }
   100% {
-    box-shadow: 0 0 0px #ffd1d1;
+    box-shadow: 0 0 0px #ffb6b6;
   }
 }
 
