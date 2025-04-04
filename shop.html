@@ -122,12 +122,16 @@
       updateCart();
       checkInventory();
 
-      // ✨ Flash glow
-      const activeButton = document.activeElement;
-      if (activeButton && activeButton.tagName === "BUTTON") {
-        activeButton.classList.add("flash-glow");
+      // ✨ Fixed Flash Glow Logic
+      const btnId = product === "Dozen Eggs" ? "dozenBtn"
+                    : product === "Half Dozen Eggs" ? "halfDozenBtn"
+                    : "treatBtn";
+
+      const clickedButton = document.getElementById(btnId);
+      if (clickedButton) {
+        clickedButton.classList.add("flash-glow");
         setTimeout(() => {
-          activeButton.classList.remove("flash-glow");
+          clickedButton.classList.remove("flash-glow");
         }, 400);
       }
     };
