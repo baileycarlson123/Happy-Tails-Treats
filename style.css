@@ -187,13 +187,13 @@ h2.divider {
 /* ✨ Flash Glow Effect */
 @keyframes flashGlow {
   0% {
-    box-shadow: 0 0 0px #ffb6b6;
+    box-shadow: 0 0 0px #d1d8d4;
   }
   50% {
-    box-shadow: 0 0 8px 5px #ffb6b6;
+    box-shadow: 0 0 8px 5px #d1d8d4;
   }
   100% {
-    box-shadow: 0 0 0px #ffb6b6;
+    box-shadow: 0 0 0px #d1d8d4;
   }
 }
 
