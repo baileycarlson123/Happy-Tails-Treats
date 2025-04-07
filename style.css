@@ -4,11 +4,13 @@ body {
   color: #243533;
   margin: 0;
   padding: 0;
-  background-image: url('https://www.transparenttextures.com/patterns/paw-prints.png');
+  background-image: url('https://raw.githubusercontent.com/baileycarlson123/Happy-Tails-Treats/main/pawprintimage.jpeg');
   background-repeat: repeat;
+  background-size: 300px auto;
   background-attachment: fixed;
 }
 
+/* === Header === */
 header {
   background-color: #243533;
   padding: 1rem;
@@ -33,6 +35,7 @@ nav a {
   font-weight: 600;
 }
 
+/* === Main Content === */
 main {
   padding: 2rem;
   max-width: 800px;
@@ -48,6 +51,7 @@ h2, h3 {
   text-align: center;
 }
 
+/* === Products === */
 .product {
   background: #ffffff;
   border: 2px solid #692721;
@@ -70,6 +74,7 @@ h2, h3 {
   text-align: center;
 }
 
+/* === Buttons === */
 button {
   background-color: #964734;
   border: none;
@@ -88,6 +93,7 @@ button:hover {
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
+/* === Cart & Checkout === */
 .cart, .checkout {
   background: #d1d8d4;
   border-radius: 12px;
@@ -130,6 +136,7 @@ button:hover {
   background-color: #243533;
 }
 
+/* === Footer === */
 footer {
   text-align: center;
   padding: 1rem;
@@ -140,6 +147,7 @@ footer {
   font-family: 'Quicksand', sans-serif;
 }
 
+/* === Dividers === */
 h2.divider {
   border-bottom: 2px dashed #964734;
   padding-bottom: 0.5rem;
@@ -149,6 +157,7 @@ h2.divider {
   font-family: 'Quicksand', sans-serif;
 }
 
+/* === Sold Out === */
 .sold-out {
   position: absolute;
   top: 40%;
@@ -171,6 +180,7 @@ h2.divider {
   position: relative;
 }
 
+/* === Cart Button Styles === */
 .cart button {
   margin: 0 5px;
   font-size: 1rem;
