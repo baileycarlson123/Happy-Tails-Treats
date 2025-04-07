@@ -1,13 +1,11 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #fdfaf6;
+  background: linear-gradient(135deg, #fffaf0, #ffe6ec, #fcefe9);
+  background-attachment: fixed;
+  background-size: cover;
   color: #243533;
   margin: 0;
   padding: 0;
-  background-image: url('https://raw.githubusercontent.com/baileycarlson123/Happy-Tails-Treats/main/pawprintimage.jpeg');
-  background-repeat: repeat;
-  background-size: 300px auto;
-  background-attachment: fixed;
 }
 
 /* === Header === */
