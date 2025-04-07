@@ -1,7 +1,6 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(to bottom, #fffaf0, #ffe0e9, #ffcfcf);
-  background-attachment: fixed;
+  background: #ffedf2
   background-size: cover;
   color: #243533;
   margin: 0;
