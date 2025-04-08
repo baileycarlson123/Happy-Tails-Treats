@@ -1,23 +1,24 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background: #eef3f0;
-  color: #2f332e;
+  background: #fff8de;
+  background-size: cover;
+  color: #243533;
   margin: 0;
   padding: 0;
 }
 
 /* === Header === */
 header {
-  background-color: #3f4a3c; /* Chalkboard forest green */
+  background-color: #243533;
   padding: 1rem;
   text-align: center;
-  border-bottom: 4px dotted #6b5f4c; /* Deep mushroom brown */
+  border-bottom: 4px dotted #964734;
 }
 
 header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #fdfdfb;
+  color: #fdf5e6;
 }
 
 nav {
@@ -26,7 +27,7 @@ nav {
 
 nav a {
   margin: 0 1rem;
-  color: #fdfdfb;
+  color: #fdf5e6;
   text-decoration: none;
   font-weight: 600;
 }
@@ -36,13 +37,13 @@ main {
   padding: 2rem;
   max-width: 800px;
   margin: 2rem auto;
-  background-color: #f9fdfb;
+  background-color: #fffaf4;
   border-radius: 16px;
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.08);
 }
 
 h2, h3 {
-  color: #6b9080; /* Soft sage */
+  color: #B78953;
   font-family: 'Quicksand', sans-serif;
   text-align: center;
 }
@@ -50,9 +51,9 @@ h2, h3 {
 /* === Products === */
 .product {
   background: #ffffff;
-  border: 2px solid #4d4b45; /* Earthy gray-brown */
+  border: 2px solid #692721;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   padding: 1.5rem;
   margin-bottom: 2rem;
   text-align: center;
@@ -72,11 +73,11 @@ h2, h3 {
 
 /* === Buttons === */
 button {
-  background-color: #6b5f4c;
+  background-color: #964734;
   border: none;
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
-  color: #fdfdfb;
+  color: #fffaf4;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -85,17 +86,17 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  background-color: #3f4a3c;
+  background-color: #692721;
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 /* === Cart & Checkout === */
 .cart, .checkout {
-  background: #d8e1dc;
+  background: #d1d8d4;
   border-radius: 12px;
   padding: 1.5rem;
   margin-top: 2rem;
-  border: 2px dashed #6b5f4c;
+  border: 2px dashed #964734;
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -107,7 +108,7 @@ button:hover {
   display: block;
   margin-top: 1rem;
   font-weight: bold;
-  color: #2f332e;
+  color: #243533;
 }
 
 .checkout input[type="text"],
@@ -124,31 +125,31 @@ button:hover {
 }
 
 .checkout-btn {
-  background-color: #6b9080;
+  background-color: #4C563F;
   color: white;
 }
 
 .checkout-btn:hover {
-  background-color: #3f4a3c;
+  background-color: #243533;
 }
 
 /* === Footer === */
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #3f4a3c;
+  background-color: #243533;
   margin-top: 3rem;
   font-size: 0.9rem;
-  color: #fdfdfb;
+  color: #fdf5e6;
   font-family: 'Quicksand', sans-serif;
 }
 
 /* === Dividers === */
 h2.divider {
-  border-bottom: 2px dashed #6b5f4c;
+  border-bottom: 2px dashed #964734;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  color: #6b5f4c;
+  color: #964734;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
 }
