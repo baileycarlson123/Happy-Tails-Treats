@@ -1,23 +1,23 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background: #fef9f4; /* Cream Oat */
-  color: #5e5b52; /* Mossy Brown */
+  background: #eef3f0;
+  color: #2f332e;
   margin: 0;
   padding: 0;
 }
 
 /* === Header === */
 header {
-  background-color: #3f4a3c; /* Chalkboard Green */
+  background-color: #3f4a3c; /* Chalkboard forest green */
   padding: 1rem;
   text-align: center;
-  border-bottom: 4px dotted #c6865d; /* Soft Clay */
+  border-bottom: 4px dotted #6b5f4c; /* Deep mushroom brown */
 }
 
 header h1 {
   margin: 0;
   font-size: 2rem;
-  color: #fffaf4; /* Creamy white */
+  color: #fdfdfb;
 }
 
 nav {
@@ -26,7 +26,7 @@ nav {
 
 nav a {
   margin: 0 1rem;
-  color: #fffaf4;
+  color: #fdfdfb;
   text-decoration: none;
   font-weight: 600;
 }
@@ -36,13 +36,13 @@ main {
   padding: 2rem;
   max-width: 800px;
   margin: 2rem auto;
-  background-color: #fffaf4; /* Still a great light content bg */
+  background-color: #f9fdfb;
   border-radius: 16px;
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.06);
 }
 
 h2, h3 {
-  color: #b78953; /* Toasted Caramel */
+  color: #6b9080; /* Soft sage */
   font-family: 'Quicksand', sans-serif;
   text-align: center;
 }
@@ -50,12 +50,13 @@ h2, h3 {
 /* === Products === */
 .product {
   background: #ffffff;
-  border: 2px solid #c6865d; /* Faded Clay */
+  border: 2px solid #4d4b45; /* Earthy gray-brown */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   padding: 1.5rem;
   margin-bottom: 2rem;
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
   position: relative;
 }
 
@@ -71,11 +72,11 @@ h2, h3 {
 
 /* === Buttons === */
 button {
-  background-color: #6b4e42; /* Dusty Brown */
+  background-color: #6b5f4c;
   border: none;
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
-  color: #fffaf4;
+  color: #fdfdfb;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -90,11 +91,12 @@ button:hover {
 
 /* === Cart & Checkout === */
 .cart, .checkout {
-  background: #e6c9b5; /* Light Clay */
+  background: #d8e1dc;
   border-radius: 12px;
   padding: 1.5rem;
   margin-top: 2rem;
-  border: 2px dashed #b78953;
+  border: 2px dashed #6b5f4c;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .cart h2, .checkout h2 {
@@ -105,7 +107,7 @@ button:hover {
   display: block;
   margin-top: 1rem;
   font-weight: bold;
-  color: #3f4a3c;
+  color: #2f332e;
 }
 
 .checkout input[type="text"],
@@ -118,11 +120,11 @@ button:hover {
   border: 1px solid #ccc;
   font-size: 1rem;
   box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 
-/* Optional alt-colored button */
 .checkout-btn {
-  background-color: #7b8d79; /* Sage Olive */
+  background-color: #6b9080;
   color: white;
 }
 
@@ -137,16 +139,18 @@ footer {
   background-color: #3f4a3c;
   margin-top: 3rem;
   font-size: 0.9rem;
-  color: #fdf5e6;
+  color: #fdfdfb;
+  font-family: 'Quicksand', sans-serif;
 }
 
 /* === Dividers === */
 h2.divider {
-  border-bottom: 2px dashed #b78953;
+  border-bottom: 2px dashed #6b5f4c;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  color: #b78953;
+  color: #6b5f4c;
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
 }
 
 /* === Sold Out === */
@@ -183,7 +187,7 @@ h2.divider {
 }
 
 .cart button:hover {
-  background-color: #e0e0e0;
+  background-color: #eee;
 }
 
 /* ✨ Flash Glow Effect */
